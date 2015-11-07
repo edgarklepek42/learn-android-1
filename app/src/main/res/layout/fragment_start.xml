@@ -1,9 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:id="@+id/startScreen">
 
-    <TextView android:text="@string/start" android:layout_width="wrap_content"
-        android:layout_height="48dp" />
+    <TextView android:text="@string/title" android:layout_width="wrap_content"
+        android:layout_height="78dp"
+        android:textColor="@color/lucom"
+        android:layout_gravity="center_horizontal"
+        android:textSize="60sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/startGame"
+        android:id="@+id/start"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/red" />
 
 </LinearLayout>
