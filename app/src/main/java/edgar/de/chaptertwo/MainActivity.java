@@ -18,18 +18,18 @@ public class MainActivity extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         newGame();
+        showStartFragment();
     }
 
     private void newGame() {
         points=0;
         round=1;
         initRound();
-        showStartFragment();
     }
 
     private void initRound() {
         countdown=10;
-        //update();
+        update();
     }
 
     // Fill TextViews with standard values
@@ -45,6 +45,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         fillTextView(R.id.countdown, Integer.toString(countdown));
     }
 
+    // Startscreen
     private void showStartFragment() {
         ViewGroup container = (ViewGroup)findViewById(R.id.container);
         container.removeAllViews();
@@ -52,6 +53,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         container.findViewById(R.id.start).setOnClickListener(this);
     }
 
+    // Failscreen
     private void showGameOverFragment() {
         ViewGroup container = (ViewGroup)findViewById(R.id.container);
         container.removeAllViews();
@@ -59,6 +61,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         container.findViewById(R.id.playAgain).setOnClickListener(this);
     }
 
+    // Just for testing purpose
     private void showGame() {
         ViewGroup container = (ViewGroup)findViewById(R.id.container);
         container.removeAllViews();
@@ -72,7 +75,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
     @Override
     public void onClick(View view) {
         if(view.getId() == R.id.start) {
-            showGameOverFragment();
+            //showGameOverFragment();
+            startGame();
         }
         else if(view.getId() == R.id.playAgain) {
             showStartFragment();
