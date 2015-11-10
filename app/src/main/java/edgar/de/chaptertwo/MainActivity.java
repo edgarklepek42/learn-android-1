@@ -13,6 +13,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private int round;
     private int countdown;
 
+    // Startpoint of the app
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,14 +22,24 @@ public class MainActivity extends Activity implements View.OnClickListener {
         showStartFragment();
     }
 
+    // Start a new game
     private void newGame() {
         points=0;
         round=1;
         initRound();
     }
 
+    // Initialize a new game round
     private void initRound() {
         countdown=10;
+
+        // Append the BirdView to the "container" View
+        ViewGroup container = (ViewGroup)findViewById(R.id.container);
+        container.removeAllViews();
+        BirdView bv = new BirdView(this);
+        container.addView(bv, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+        bv.setImageCount(8*(10+round));
+
         update();
     }
 
